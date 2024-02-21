@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Conversion Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: hsl(0, 0%, 95%);
+        }
+
+        h1 {
+            color: hsl(223, 100%, 64%);
+        }
+
+        form {
+            background-color: hsl(0, 0%, 100%);
+            text-align: center;
+            margin: auto;
+            width: 350px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px hsl(0, 0%, 0%, 0.3);
+        }
+
+        #textbox {
+            width: 50%;
+            text-align: center;
+            font-size: 2em;
+            border: 2px solid hsl(0, 0%, 0%, 0.8);
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 15px;
+            background-color: brown;
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        button:hover {
+            background-color: rgb(198, 52, 52);
+
+        }
+
+        #result {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <h1>Temperature Conversion</h1>
+        <input type="number" name="" id="textbox" value="0"><br>
+
+        <input type="radio" name="unit" id="toFah">
+        <label for="toFah">Celsius to ➡️ Fahrenheit</label><br>
+
+        <input type="radio" name="unit" id="toCal">
+        <label for="toCal"> Fahrenheit to ➡️ Celsius </label><br>
+
+        <button type="button" onclick="convert()">Submit</button>
+        <p id="result"></p>
+    </form>
+
+    <script>
+        const fah = document.getElementById("toFah");
+        const cal = document.getElementById("toCal");
+        const result = document.getElementById("result");
+        let temp;
+        function convert() {
+            if (fah.checked) {
+                temp = Number(textbox.value);
+                temp = temp * 9 / 5 + 32;
+                result.textContent = temp.toFixed(1) + "°C";
+
+            } else if (cal.checked) {
+                temp = Number(textbox.value);
+                temp = 5 / 9 * (temp-32);
+                result.textContent=temp.toFixed(1)+"°C";
+            } else {
+                result.textContent = "Select a Unit";
+            }
+        }
+    </script>
+</body>
+
+</html>
